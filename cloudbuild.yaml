@@ -1,22 +1,12 @@
 steps:
-  - name: 'node:14'  # Use the Node.js 14 image
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        # Install dependencies
-        npm install
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
 
-  - name: 'node:14'  # Use the Node.js 14 image
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        # Build your Node.js application (replace this with your build command)
-        npm run build
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build']  # Replace with your build command
 
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ['cp', '-r', 'dist', 'gs://asdfghjkqwertyuwertyxcv']  # Upload your application to the bucket
+    args: ['cp', '-r', 'dist', 'gs://asdfghjkqwertyuwertyxcv']  # Replace with your bucket name
 
-  # You can add more steps here, such as running tests, linting, etc.
-
+options:
+  logging: { 'logsBucket': 'gs://asdfghjkqwertyuwertyxcv' }  # Replace with your logs bucket
