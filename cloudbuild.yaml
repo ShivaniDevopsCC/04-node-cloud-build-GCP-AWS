@@ -1,12 +1,3 @@
 steps:
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['install']
-
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'build']  # Replace with your build command
-
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ['cp', '-r', '.', 'gs://asdfghjkqwertyuwertyxcv']  # Replace with your bucket name
-
-options:
-  logging: { 'logsBucket': 'gs://asdfghjkqwertyuwertyxcv' }  # Replace with your logs bucket
+    args: ['cp', '-r', '.', 'gs://your-bucket-name']
