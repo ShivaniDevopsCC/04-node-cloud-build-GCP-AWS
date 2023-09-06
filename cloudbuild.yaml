@@ -6,7 +6,7 @@ steps:
     args: ['run', 'build']  # Replace with your build command
 
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ['cp', '-r', 'dist', 'gs://asdfghjkqwertyuwertyxcv']  # Replace with your bucket name
+    args: ['cp', '-r', '.', 'gs://asdfghjkqwertyuwertyxcv']  # Replace with your bucket name
 
 options:
   logging: { 'logsBucket': 'gs://asdfghjkqwertyuwertyxcv' }  # Replace with your logs bucket
